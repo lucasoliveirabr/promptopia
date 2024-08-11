@@ -42,20 +42,42 @@ const Form: React.FC<Props> = ({ type, typeDoing, post, setPost, submitting, han
             required
             className="form_textarea"
           />
+          <style jsx>
+              {`
+              textarea {
+                color: #000; /* Cor do placeholder */
+                opacity: 1; /* Para garantir que a opacidade seja 1 */
+              }
+              `}
+            </style>
         </label>
         <label>
           <span className="font-satoshi font-semibold text-base text-gray-700">
             Tag {` `}
-            <span className="font-normal">(#product, #webdevelopment, #idea)</span>
+            <span className="font-normal">
+              (#product, #webdevelopment, #idea)
+            </span>
           </span>
 
-          <input
-            value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            placeholder="#tag"
-            required
-            className="form_input"
-          />
+          <span className="flex items-center">
+            <span className="flex items-center mr-1 pt-2 h-11 text-xl">#</span>
+            <input
+              value={post.tag}
+              onChange={(e) => setPost({ ...post, tag: e.target.value })}
+              onKeyDown={(e) => e.key === "#" && e.preventDefault()}
+              placeholder="tag"
+              required
+              className="form_input h-11"
+            />
+            <style jsx>
+              {`
+              input {
+                color: #000; /* Cor do placeholder */
+                opacity: 1; /* Para garantir que a opacidade seja 1 */
+              }
+              `}
+            </style>
+          </span>
         </label>
 
         <div className="flex-end mx-3 mb-5 gap-4">
