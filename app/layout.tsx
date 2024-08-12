@@ -14,6 +14,9 @@ export const metadata = {
 const RootLayout: React.FC<Props> = ({ children }) => {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/assets/icons/favicon.ico" />
+      </head>
       <body>
         <Provider session={null}>
           <div className="main">

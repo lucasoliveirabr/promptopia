@@ -33,8 +33,7 @@ const CreatePrompt: React.FC = () => {
           userId: session?.user?.id,
           tag: post.tag,
         })
-      }
-      )
+      })
 
       if (response.ok) {
         router.push("/");

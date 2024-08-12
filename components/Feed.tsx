@@ -4,19 +4,21 @@ import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
 
+import PromptItem from "@interfaces/PromptItem";
+
 interface Props {
-  data: any;
+  data: PromptItem[];
   // handleTagClick: (tag: string) => void;
   // handleTagClick: (e: any) => Promise<void>;
-  handleTagClick: any;
-  handleEdit: any;
-  handleDelete: any;
+  handleTagClick?: any;
+  handleEdit?: (post: PromptItem) => void;
+  handleDelete?: (post: PromptItem) => Promise<void>;
 }
 
 const PromptCardList: React.FC<Props> = ({ data, handleTagClick, handleEdit, handleDelete }) => {
   return (
     <div className="mt-16 prompt_layout">
-      {data.map((post: any) => (
+      {data.map((post: PromptItem) => (
         <PromptCard
           key={post._id}
           post={post}
@@ -31,7 +33,7 @@ const PromptCardList: React.FC<Props> = ({ data, handleTagClick, handleEdit, han
 
 const Feed: React.FC = () => {
   const [searchText, setSearchText] = useState<string>("");
-  const [posts, setPosts]  = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const handleSearchChange = (e: any) => {
 
@@ -63,9 +65,9 @@ const Feed: React.FC = () => {
 
       <PromptCardList
         data={posts}
-        handleTagClick={() => {}}
-        handleEdit={() => {}}
-        handleDelete={() => {}}
+        //handleTagClick={() => { }}
+        //handleEdit={() => { }}
+        //handleDelete={() => Promise.resolve()}
       />
     </section>
   )
