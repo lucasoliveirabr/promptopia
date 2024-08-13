@@ -1,16 +1,18 @@
 <div align="center">
-  <p align="center" style="font-size: 2em; font-weight: bold; margin: 0;">Promptopia</p>
-  <p align="center" style="font-size: 1.5em; margin: 0;">A Next.js 14 AI Prompt Sharing Application</p>
-
-  <br />
-  
+  <h1 align="center" style="font-size: 2em; font-weight: bold; margin: 0;">Promptopia</h1>
+  <h3 align="center" style="font-size: 1.5em; margin: 0;">A Next.js AI Prompt Sharing Application</h3>
   <div>
-    <img src="https://img.shields.io/badge/-Next_JS-black?style=for-the-badge&logoColor=white&logo=nextdotjs&color=000" alt="Next.js" />
-    <img src="https://img.shields.io/badge/-React.JS-black?style=for-the-badge&logoColor=white&logo=react&color=007ACC" alt="react.js" />
-    <img src="https://img.shields.io/badge/-Mongodb-black?style=for-the-badge&logoColor=white&logo=mongodb&color=47A248" alt="mongodb" />
-    <img src="https://img.shields.io/badge/-Tailwind_CSS-black?style=for-the-badge&logoColor=white&logo=tailwindcss&color=06B6D4" alt="tailwindcss" />
+    <img src="https://img.shields.io/badge/Next.JS-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
+    <img src="https://img.shields.io/badge/React.JS-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React.js" />
+    <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+    <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/TailwindCSS-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
   </div>
 </div>
+
+<br />
+
+<img src="https://github.com/user-attachments/assets/d9481cd8-7fcf-49ba-b813-2d16b5b2e62d" alt="Main Page" />
 
 ## <a name="quick-start">🚀 Quick Start</a>
 
@@ -60,5 +62,3 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the project.
-
-#

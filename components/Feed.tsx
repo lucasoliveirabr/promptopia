@@ -8,9 +8,7 @@ import PromptItem from "@interfaces/PromptItem";
 
 interface Props {
   data: PromptItem[];
-  // handleTagClick: (tag: string) => void;
-  // handleTagClick: (e: any) => Promise<void>;
-  handleTagClick?: any;
+  handleTagClick: (tagName: string) => void;
   handleEdit?: (post: PromptItem) => void;
   handleDelete?: (post: PromptItem) => Promise<void>;
 }
@@ -32,12 +30,11 @@ const PromptCardList: React.FC<Props> = ({ data, handleTagClick, handleEdit, han
 }
 
 const Feed: React.FC = () => {
-  const [searchText, setSearchText] = useState<string>("");
   const [posts, setPosts] = useState([]);
 
-  const handleSearchChange = (e: any) => {
-
-  }
+  const [searchText, setSearchText] = useState<string>("");
+  const [searchTimeout, setSearchTimeout] = useState<any | null>(null);
+  const [searchedResults, setSearchedResults] = useState([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -50,9 +47,38 @@ const Feed: React.FC = () => {
     fetchPosts();
   }, [])
 
+  const filterPrompts = (searchtext: string) => {
+    const regex = new RegExp(searchtext, "i");
+
+    return posts.filter((item: PromptItem) =>
+      regex.test(item.creator.username) ||
+      regex.test(item.tag) ||
+      regex.test(item.prompt)
+    );
+  }
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    searchTimeout !== null && clearTimeout(searchTimeout);
+    setSearchText(e.target.value);
+
+    setSearchTimeout(
+      setTimeout(() => {
+        const searchResult = filterPrompts(e.target.value);
+        setSearchedResults(searchResult);
+      }, 500)
+    );
+  }
+
+  const handleTagClick = (tagName: string): void => {
+    setSearchText(tagName);
+
+    const searchResult = filterPrompts(tagName);
+    setSearchedResults(searchResult);
+  }
+
   return (
     <section className="feed">
-      <form className="relative w-full flex-center">
+      <form onSubmit={(e: any) => e.preventDefault()} className="relative w-full flex-center">
         <input
           type="text"
           placeholder="Search for prompts, a tag or a username"
@@ -63,12 +89,17 @@ const Feed: React.FC = () => {
         />
       </form>
 
-      <PromptCardList
-        data={posts}
-        //handleTagClick={() => { }}
-        //handleEdit={() => { }}
-        //handleDelete={() => Promise.resolve()}
-      />
+      {searchText ? (
+        <PromptCardList
+          data={searchedResults}
+          handleTagClick={handleTagClick}
+        />
+      ) : (
+        <PromptCardList
+          data={posts}
+          handleTagClick={handleTagClick}
+        />
+      )}
     </section>
   )
 }
