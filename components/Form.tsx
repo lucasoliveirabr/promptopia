@@ -11,7 +11,7 @@ interface Props {
   post: Post;
   setPost: React.Dispatch<React.SetStateAction<Post>>;
   submitting: boolean;
-  handleSubmit: (e: any) => Promise<void>;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
 }
 
 const Form: React.FC<Props> = ({ type, typeDoing, post, setPost, submitting, handleSubmit }) => {
@@ -43,8 +43,8 @@ const Form: React.FC<Props> = ({ type, typeDoing, post, setPost, submitting, han
           <style jsx>
               {`
               textarea {
-                color: #000; /* Cor do placeholder */
-                opacity: 1; /* Para garantir que a opacidade seja 1 */
+                color: #000;
+                opacity: 1;
               }
               `}
             </style>
@@ -70,8 +70,8 @@ const Form: React.FC<Props> = ({ type, typeDoing, post, setPost, submitting, han
             <style jsx>
               {`
               input {
-                color: #000; /* Cor do placeholder */
-                opacity: 1; /* Para garantir que a opacidade seja 1 */
+                color: #000;
+                opacity: 1;
               }
               `}
             </style>

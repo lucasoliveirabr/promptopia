@@ -13,7 +13,6 @@ const MyProfile: React.FC = () => {
   const { data: session } = useSession();
 
   const [posts, setPosts] = useState<PromptItem[]>([]);
-  console.log(posts);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -51,7 +50,7 @@ const MyProfile: React.FC = () => {
   return (
     <Profile
       name="My"
-      desc="Welcome to your personalized profile page."
+      desc="Welcome to your personalized profile page. Share your prompts and inspire others with the power of your imagination."
       data={posts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}

@@ -14,7 +14,6 @@ interface Props {
 }
 
 const UserProfile: React.FC<Props> = ({ params }) => {
-  console.log("params: " + params);
   const searchParams = useSearchParams();
   const userName: string = searchParams.get("name") ?? "";
 

@@ -29,8 +29,6 @@ const handler = NextAuth({
       try {
         await connectToDB();
 
-        console.log(profile);
-
         if (profile && profile.email && profile.name && profile.picture) {
           const userExists = await User.findOne({
             email: profile.email
@@ -47,7 +45,7 @@ const handler = NextAuth({
 
         return true;
       } catch (error) {
-        console.error(error);
+        console.error("Error checking if user exists: ", error);
         return false;
       }
     }

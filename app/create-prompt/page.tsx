@@ -21,7 +21,7 @@ const CreatePrompt: React.FC = () => {
     tag: "",
   });
 
-  const createPromptFunction = async (e: any): Promise<void> => {
+  const createPromptFunction = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setSubmitting(true);
 

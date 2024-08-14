@@ -10,7 +10,7 @@ interface Post {
   tag: string;
 }
 
-const EditPrompt: React.FC = () => {
+const UpdatePrompt: React.FC = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
@@ -35,7 +35,7 @@ const EditPrompt: React.FC = () => {
     if (promptId) getPromptDetails();
   }, [promptId])
 
-  const updatePromptFunction = async (e: any): Promise<void> => {
+  const updatePromptFunction = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setSubmitting(true);
 
@@ -72,4 +72,4 @@ const EditPrompt: React.FC = () => {
   )
 }
 
-export default EditPrompt;
+export default UpdatePrompt;

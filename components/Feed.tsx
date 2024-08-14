@@ -26,11 +26,11 @@ const PromptCardList: React.FC<Props> = ({ data, handleTagClick }) => {
 }
 
 const Feed: React.FC = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<PromptItem[]>([]);
 
   const [searchText, setSearchText] = useState<string>("");
-  const [searchTimeout, setSearchTimeout] = useState<any | null>(null);
-  const [searchedResults, setSearchedResults] = useState([]);
+  const [searchTimeout, setSearchTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
+  const [searchedResults, setSearchedResults] = useState<PromptItem[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {

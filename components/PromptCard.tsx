@@ -9,7 +9,7 @@ import PromptItem from "@interfaces/PromptItem";
 
 interface Props {
   post: PromptItem;
-  handleTagClick?: any;
+  handleTagClick?: (tagName: string) => void;
   handleEdit?: (post: PromptItem) => void;
   handleDelete?: (post: PromptItem) => Promise<void>;
 }
