@@ -10,8 +10,8 @@ import PromptItem from "@interfaces/PromptItem";
 interface Props {
   post: PromptItem;
   handleTagClick?: any;
-  handleEdit: any;
-  handleDelete: any;
+  handleEdit?: (post: PromptItem) => void;
+  handleDelete?: (post: PromptItem) => Promise<void>;
 }
 
 const PromptCard: React.FC<Props> = ({ post, handleTagClick, handleEdit, handleDelete }) => {
@@ -20,6 +20,14 @@ const PromptCard: React.FC<Props> = ({ post, handleTagClick, handleEdit, handleD
   const router = useRouter();
 
   const [copied, setCopied] = useState<string>("");
+
+  const handleProfileClick = () => {
+    if (post.creator._id === session?.user?.id) {
+      router.push("/profile");
+    } else {
+      router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
+    }
+  }
   
   const handleCopy = () => {
     setCopied(post.prompt);
@@ -30,7 +38,7 @@ const PromptCard: React.FC<Props> = ({ post, handleTagClick, handleEdit, handleD
   return (
     <div className="prompt_card">
       <div className="flex justify-between items-start gap-5">
-        <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer">
+        <div className="flex-1 flex justify-start items-center gap-3 cursor-pointer" onClick={handleProfileClick}>
           <Image
             src={post.creator.image}
             alt="User image"
@@ -70,12 +78,12 @@ const PromptCard: React.FC<Props> = ({ post, handleTagClick, handleEdit, handleD
         <div className="mt-5 flex-center gap-4 border-t border-gray-100 pt-3">
           <p
           className="font-inter text-sm green_gradient cursor-pointer"
-          onClick={handleEdit}>
+          onClick={() => handleEdit && handleEdit(post)}>
             Edit
           </p>
           <p
           className="font-inter text-sm orange_gradient cursor-pointer"
-          onClick={handleDelete}>
+          onClick={() => handleDelete && handleDelete(post)}>
             Delete
           </p>
         </div>

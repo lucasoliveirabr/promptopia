@@ -6,8 +6,8 @@ interface Props {
   name: string;
   desc: string;
   data: PromptItem[];
-  handleEdit: (post: PromptItem) => void;
-  handleDelete: (post: PromptItem) => Promise<void>;
+  handleEdit?: (post: PromptItem) => void;
+  handleDelete?: (post: PromptItem) => Promise<void>;
 }
 
 const Profile: React.FC<Props> = ({ name, desc, data, handleEdit, handleDelete }) => {
@@ -25,7 +25,7 @@ const Profile: React.FC<Props> = ({ name, desc, data, handleEdit, handleDelete }
             key={post._id}
             post={post}
             handleEdit={() => handleEdit && handleEdit(post)}
-            handleDelete={() => handleDelete && handleDelete(post)}
+            handleDelete={async () => handleDelete && handleDelete(post)}
           />
         ))}
       </div>

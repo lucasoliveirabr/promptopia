@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { Dispatch, SetStateAction } from "react";
-
 interface Post {
   prompt: string;
   tag: string;
@@ -11,7 +9,7 @@ interface Props {
   type: string;
   typeDoing: string;
   post: Post;
-  setPost: Dispatch<SetStateAction<Post>>;
+  setPost: React.Dispatch<React.SetStateAction<Post>>;
   submitting: boolean;
   handleSubmit: (e: any) => Promise<void>;
 }

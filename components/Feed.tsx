@@ -9,11 +9,9 @@ import PromptItem from "@interfaces/PromptItem";
 interface Props {
   data: PromptItem[];
   handleTagClick: (tagName: string) => void;
-  handleEdit?: (post: PromptItem) => void;
-  handleDelete?: (post: PromptItem) => Promise<void>;
 }
 
-const PromptCardList: React.FC<Props> = ({ data, handleTagClick, handleEdit, handleDelete }) => {
+const PromptCardList: React.FC<Props> = ({ data, handleTagClick }) => {
   return (
     <div className="mt-16 prompt_layout">
       {data.map((post: PromptItem) => (
@@ -21,8 +19,6 @@ const PromptCardList: React.FC<Props> = ({ data, handleTagClick, handleEdit, han
           key={post._id}
           post={post}
           handleTagClick={handleTagClick}
-          handleEdit={handleEdit}
-          handleDelete={handleDelete}
         />
       ))}
     </div>
@@ -78,7 +74,7 @@ const Feed: React.FC = () => {
 
   return (
     <section className="feed">
-      <form onSubmit={(e: any) => e.preventDefault()} className="relative w-full flex-center">
+      <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()} className="relative w-full flex-center">
         <input
           type="text"
           placeholder="Search for prompts, a tag or a username"
