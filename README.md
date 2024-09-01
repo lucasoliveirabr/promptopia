@@ -35,13 +35,13 @@ A [Promptopia](https://www.youtube.com/watch?v=wm5gMKuwSYk) made with:
 
 👉 **View Other People's Profiles**: Users can explore the profiles of other creators to view the prompts they've shared, fostering a sense of community.
 
-👉 **Copy to Clipboard**: Implement a convenient "Copy to Clipboard" functionality for users to easily copy the AI prompts for their use.
+👉 **Copy to Clipboard**: A convenient "Copy to Clipboard" functionality for users to easily copy the AI prompts for their use.
 
 👉 **Search Prompts by Specific Tag**: Allow users to search for prompts based on specific tags, making it easier to find prompts related to specific topics.
 
 👉 **Google Authentication using NextAuth**: Enable secure Google authentication using NextAuth, ensuring a streamlined and trustworthy login experience.
 
-👉 **Responsive Website**: Develop a fully responsive website to ensure optimal user experience across various devices, from desktops to smartphones.
+👉 **Responsive Website**: A fully responsive website to ensure optimal user experience across various devices, from desktops to smartphones.
 
 and many more, including code architecture and reusability.
 
